@@ -12,12 +12,12 @@
 echo $_SERVER["argv"][1];
 $sql_file=$_SERVER["argv"][1];
 
-$host="10.11.199.233";
+$host="127.0.0.1";
 $user="liyangyang";
 $pwd="liyangyang";
 $db="haoma_stats";
 
-$tableName="";
+$tableName="error_count_tbl";
 
 $link = mysql_connect($host,$user,$pwd);
 mysql_select_db($db);
