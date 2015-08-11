@@ -1,5 +1,5 @@
-    SimpleDateFormat format2 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z",Locale.US);
-		SimpleDateFormat format3 = new SimpleDateFormat("yyyyMMdd",Locale.US);
-		String ttString="04/Aug/2015:13:37:04 +0800";
-		String dt=format3.format(format2.parse(ttString)).toString();
-		System.out.println(dt);
+    	SimpleDateFormat format2 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z",Locale.US);
+	SimpleDateFormat format3 = new SimpleDateFormat("yyyyMMdd",Locale.US);
+	String ttString="04/Aug/2015:13:37:04 +0800";
+	String dt=format3.format(format2.parse(ttString)).toString();
+	System.out.println(dt);
