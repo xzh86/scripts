@@ -13,9 +13,9 @@ echo $_SERVER["argv"][1];
 $sql_file=$_SERVER["argv"][1];
 
 $host="127.0.0.1";
-$user="liyangyang";
-$pwd="liyangyang";
-$db="haoma_stats";
+$user="xz";
+$pwd="xz";
+$db="data_tbl";
 
 $tableName="error_count_tbl";
 
