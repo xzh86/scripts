@@ -1,0 +1,69 @@
+package com.imeda.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LatLon {
+	
+	private double lat1=0.0;
+	private double lon1=0.0;
+	private double lat2=0.0;
+	private double lon2=0.0;
+	
+	public LatLon(){
+		
+	}
+
+	public LatLon(double lat1,double lon1,double lat2,double lon2){
+		this.lat1=lat1;this.lon1=lon1;this.lat2=lat2;this.lon2=lon2;
+	}
+	
+	public double getSmallLat(){
+		return (lat1<lat2?lat1:lat2);
+	}
+	public double getBigLat(){
+		return (lat1>lat2?lat1:lat2);
+	}
+	public double getSmallLon(){
+		return (lon1>lon2?lon2:lon1);
+	}
+	public double getBigLon(){
+		return (lon1>lon2?lon1:lon2);
+	}
+	
+	public boolean InChina(double lat,double lon){
+		List<LatLon> latlonList = new ArrayList<LatLon>();
+		LatLon latLon1=new LatLon(49.220400,79.446200,42.889900,96.330000);
+		LatLon latLon2=new LatLon(54.141500,109.687200, 39.374200, 135.000200);
+		LatLon latLon3=new LatLon(42.889900, 73.124600, 29.529700, 124.143255);
+		LatLon latLon4=new LatLon(29.529700, 82.968400, 26.718600, 97.035200);
+		LatLon latLon5=new LatLon(29.529700, 97.025300, 20.414096, 124.367395);
+		LatLon latLon6=new LatLon(20.414096, 107.975793, 17.871542, 111.744104);
+		LatLon nlatlon1=new LatLon(25.398623,119.921265,21.785006,122.497559);
+		LatLon nlatlon2=new LatLon(22.284000,101.865200,20.098800,106.665000);
+		LatLon nlatlon3=new LatLon(21.542200,106.452500,20.487800,108.051000);
+		LatLon nlatlon4=new LatLon(55.817500,109.032300,50.325700,119.127000);
+		LatLon nlatlon5=new LatLon(55.817500,127.456800,49.557400,137.022700);
+		LatLon nlatlon6=new LatLon(44.892200,131.266200,42.569200,137.022700);
+		
+		latlonList.add(latLon1);latlonList.add(latLon2);latlonList.add(latLon3);
+		latlonList.add(latLon4);latlonList.add(latLon5);latlonList.add(latLon6);
+		
+		boolean inChina=false;
+		for (LatLon latLon : latlonList) {
+			if (lat>=latLon.getSmallLat() && lat<=latLon.getBigLat() && lon>=latLon.getSmallLon()&& lon<=latLon.getBigLon() && 
+					!(lat>=latLon.getSmallLat()&&lat<=latLon.getBigLat()&&lon>=latLon.getSmallLon()&&lon>=latLon.getBigLon())){
+				inChina=true;
+			}
+		}
+		return inChina;
+	}
+	
+	public static void main(String[] args) {
+		double lat = 10.1;
+		double lon = 10.1;
+		lat=39.993018;lon=116.337795;//五道口
+		LatLon latLon = new LatLon();
+		System.out.println(latLon.InChina(lat, lon));
+	}
+}
